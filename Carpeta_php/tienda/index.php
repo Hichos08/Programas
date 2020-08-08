@@ -19,7 +19,7 @@
 
 
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "md5db");  
+ $connect = mysqli_connect("localhost", "grupo1", "grupo1", "grupo1");  
  session_start();  
  if(isset($_SESSION["username"]))  
  {  
@@ -85,21 +85,17 @@ Swal.fire({
            $username = mysqli_real_escape_string($connect, $_POST["username"]);  
            $password = mysqli_real_escape_string($connect, $_POST["password"]);  
            $password = md5($password);  
-           $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";  
+           $query = "SELECT * FROM grupo1.users WHERE username = '$username' AND password = '$password'";  
            $result = mysqli_query($connect, $query);  
            if(mysqli_num_rows($result) > 0)  
-           {  
-           
-
-
-
-
+           {
+ session_start(); 
                 $_SESSION['username'] = $username;  
-                $insertar = "INSERT INTO md5db.bi
-(username, fecha)
-VALUES('$username', 'NOW()')";  
-                $result2 = mysqli_query($connect, $insertar); 
-                header("location:entry.php");  
+                date_default_timezone_set('America/Guatemala');
+                $b = date("Y-m-d H:i:s");
+                $insertar = "INSERT INTO grupo1.bitacora (username,fecha) VALUES ('$username', '$b')"; 
+                $resultt = mysqli_query($connect, $insertar);   
+               header("location:entry.php");    
            }  
            else  
            {  
