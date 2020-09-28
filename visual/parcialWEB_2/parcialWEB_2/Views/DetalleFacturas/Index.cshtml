@@ -1,0 +1,51 @@
+﻿@model IEnumerable<parcialWEB_2.Models.DetalleFactura>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Facturas.IdFactura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Productos.NombreProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.preciounitario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Facturas.IdFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Productos.NombreProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preciounitario)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdDetalleOrden }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdDetalleOrden }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdDetalleOrden })
+        </td>
+    </tr>
+}
+
+</table>
