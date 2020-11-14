@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	<h:head>
+    <title>Inventario Materiales</title>
+    <style type="text/css">
+    .navegacion a {
+    	text-decoration: none;/*elimina la linea bajo la palabra*/
+    	font-size: 1.3rem; /**= 18 pixeles**/
+	}
+	.navegacion a:hover{/*pseudoselector mas comun, le da un color cuando ubicamos el cursor sobre el enlace*/
+    	color: #71b100;
+	}
+        button{
+		background-color:blue;
+		color:white;
+	}
+	.Contenedor{
+		background-color:green;
+		width:270px;
+		height:145px;
+		border-color:red;
+    </style>
+	</h:head>
+	<h:body>
+    <h:form>
+    <center>
+    <h2>Registrar Ventas</h2>
+    <div class="Contenedor">
+    <br/>
+        <table>
+          <tr>
+             <td>ID PRODUCTOS</td>
+             <td>
+               <h:inputText value="#{controladorVentas.venta.idPro}" />
+             </td>
+          </tr>
+          <tr>
+                <td>Cantidad ventas:</td>
+             <td>
+               <h:inputText value="#{controladorVentas.venta.cantidadVenta}" />
+             </td>    
+          </tr>
+         
+        </table>
+        <br/>
+        <h:commandButton value="Guardar" action="#{controladorVentas.guardar()}"/>
+        <br/><br/>
+    <nav class="navegacion">
+   		<a href="index.xhtml">Volver</a>
+    </nav>
+        </div>
+        </center>
+     </h:form>
+	</h:body>
+</html>
